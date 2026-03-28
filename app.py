@@ -1,10 +1,11 @@
+import os
 import random
 import requests
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 
 RESPONSES = {
     "greet": {
