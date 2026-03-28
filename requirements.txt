@@ -1,3 +1,2 @@
 flask
 requests
-anthropic>=0.25.0   # optional – only needed if using the AI mode
