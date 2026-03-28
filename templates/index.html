@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexBot – AI Study Companion</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SIDEBAR
+  ════════════════════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <span class="logo-mark">N</span>
+      <span class="logo-text">NexBot</span>
+    </div>
+
+    <button class="new-chat-btn" id="newChatBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      New Chat
+    </button>
+
+    <!-- Quick-topic chips -->
+    <p class="sidebar-label">Quick Topics</p>
+    <div class="topic-chips">
+      <button class="chip" data-msg="Explain Python basics for a beginner">🐍 Python Basics</button>
+      <button class="chip" data-msg="Give me JavaScript tips">🌐 JavaScript</button>
+      <button class="chip" data-msg="How do I prepare for a tech interview?">💼 Tech Interview</button>
+      <button class="chip" data-msg="Give me college project ideas">💡 Project Ideas</button>
+      <button class="chip" data-msg="How do I debug my code?">🐛 Debugging</button>
+      <button class="chip" data-msg="How to use Git and GitHub?">🔀 Git & GitHub</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <span id="modeIndicator" class="mode-badge">⚡ Rule-based</span>
+      <p class="footer-hint">Set <code>ANTHROPIC_API_KEY</code><br>env variable for full AI</p>
+    </div>
+
+  </aside>
+
+  <!-- Hamburger (mobile) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CHAT PANEL
+  ════════════════════════════════════════════════════════ -->
+  <main class="chat-panel">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-logo">NexBot</span>
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Connecting…</span>
+      </div>
+      <div class="topbar-right">
+        <span class="model-tag" id="modelTag">Loading…</span>
+      </div>
+    </header>
+
+    <!-- Chat messages container -->
+    <section class="messages" id="messages">
+
+      <!-- Welcome screen (shown when chat is empty) -->
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">🤖</div>
+        <h1 class="welcome-title">Hi, I'm NexBot</h1>
+        <p class="welcome-sub">Your AI-powered study companion.<br>Ask me anything about <strong>programming</strong>, <strong>college</strong>, or <strong>life</strong>.</p>
+        <div class="welcome-cards">
+          <div class="wcard" data-msg="What should I learn first – Python or JavaScript?">
+            <span class="wcard-icon">💬</span>
+            <p>Python vs JavaScript – which first?</p>
+          </div>
+          <div class="wcard" data-msg="Give me tips to score better in exams">
+            <span class="wcard-icon">📚</span>
+            <p>Tips to score better in exams</p>
+          </div>
+          <div class="wcard" data-msg="How do I build my first web project?">
+            <span class="wcard-icon">🚀</span>
+            <p>Build my first web project</p>
+          </div>
+          <div class="wcard" data-msg="I'm feeling demotivated. Help me.">
+            <span class="wcard-icon">💪</span>
+            <p>I need some motivation</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Input bar -->
+    <footer class="input-bar">
+      <div class="input-wrap">
+        <textarea
+          id="userInput"
+          placeholder="Ask anything… (Shift+Enter for new line)"
+          rows="1"
+          autocomplete="off"
+          spellcheck="true"
+        ></textarea>
+        <button class="send-btn" id="sendBtn" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+      <p class="disclaimer">NexBot can make mistakes. Verify important information.</p>
+    </footer>
+
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
