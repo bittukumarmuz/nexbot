@@ -132,7 +132,7 @@ def chat():
 
 @app.route("/api/status")
 def status():
-    return jsonify({"status": "running", "mode": "AI Powered Nexora"})
+    return jsonify({"status": "running", "mode": "AI Powered Syphex"})
 
 
 if __name__ == "__main__":
