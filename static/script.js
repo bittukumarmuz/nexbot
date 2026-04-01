@@ -49,9 +49,7 @@ function simpleMarkdown(text) {
 
 /** Smoothly scroll the messages container to the bottom */
 function scrollToBottom() {
-  setTimeout(() => {
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }, 100);
+  messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: "smooth" });
 }
 
 // ── Message rendering ────────────────────────────────────────
